@@ -60,12 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script>
 	// setInterval method to refresh
 	$(document).ready(function() {
-		//auto reload div after 5 seconds
-		setInterval('refresh_div()', 5000);
+		//auto reload div after 3 seconds with jquery load ajax
+		setInterval('refresh_div()', 3000);
 	});
 
 	function refresh_div() {
-		location.reload();
+		$('#chatbox').load(document.URL +  ' #chatbox');
 	}
 </script>
 
