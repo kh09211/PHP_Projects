@@ -17,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	header ('Location: cheapchat.php');
 }
 ?>
-<script>
-	// Jquery Javascript code to use AJAX to automatically refresh div that pulls comments from database
-
-</script>
 <div class="container">
 	<div class="row">
 		<div class="col-md" id="chatbox-row">
@@ -60,11 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script>
 	// setInterval method to refresh
 	$(document).ready(function() {
-		//auto reload div after 3 seconds with jquery load ajax
+		//auto reload div after 3 seconds
 		setInterval('refresh_div()', 3000);
 	});
 
 	function refresh_div() {
+		// reload just the chatbox div with jquery .load ajax
 		$('#chatbox').load(document.URL +  ' #chatbox');
 	}
 </script>
