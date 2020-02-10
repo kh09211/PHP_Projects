@@ -1,7 +1,7 @@
 <?php
 /**
  * lib/functions.php
- * functions file for cheapchat 1.0 project
+ * functions file for chatapp 1.0 project
  */
 
 
@@ -28,7 +28,7 @@ function put_comment($submited_data) {
 		$stmt->execute($submited_data);
 }
 
-// This function connects to the dabase with the config file and pulls the comments from the database
+// This function connects to the database with the config file and pulls the comments from the database
 // but only the last ones by quereing in descending order. Then reverses results back to correct format
 function get_comment() {
 	include 'lib/config.php';

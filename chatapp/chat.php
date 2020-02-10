@@ -1,6 +1,6 @@
 <?php
-/* cheapchat.php
- * main page for the cheapchat 1.0 project. Using boostrap 4 cdn for styles
+/* chat.php
+ * main page for the chatApp 1.0 project. Using PHP, HTML, CSS(Bootstrap), and Javascript(JQUERY)
  */
 include 'lib/header.php';
 // If the user posted data, Process it then submit it to the database
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$submited_data['name'] = cut_string($submited_data['name'], 14);
 	put_comment($submited_data);
 	// Redirect so the page cant be refreshed to submit the data
-	header ('Location: cheapchat.php');
+	header ('Location: chat.php');
 }
 ?>
 <div class="container">
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</div>
 		</div>
 	</div>
-		<form action="cheapchat.php" method="POST">
+		<form action="chat.php" method="POST">
 			<div class="row no-gutters " id="typebox-row">
 				<div class="col-md-2">
 					
@@ -65,6 +65,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$('#chatbox').load(document.URL +  ' #chatbox');
 	}
 </script>
-
 <?php 
 include 'lib/footer.php';

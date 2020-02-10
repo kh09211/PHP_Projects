@@ -1,7 +1,7 @@
 <?php
 /**
  * lib/footer.php
- * footer file for cheapchat 1.0 project
+ * footer file for chatapp 1.0 project
  */
 ?>
 <br>
