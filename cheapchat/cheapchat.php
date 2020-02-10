@@ -17,10 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	header ('Location: cheapchat.php');
 }
 ?>
+<script>
+	// Jquery Javascript code to use AJAX to automatically refresh div that pulls comments from database
+
+</script>
 <div class="container">
 	<div class="row">
 		<div class="col-md" id="chatbox-row">
-			<div class="chatbox border border-danger rounded-top">
+			<div class="chatbox border border-danger rounded-top" id="chatbox">
 				<p class="text-truncate"><?php
 					//THIS CODE LOOPS COMMENTS FROM THE DATABASE INTO THE CHATBOX
 					$comments = get_comment();
@@ -51,5 +55,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</div>
 		</form>
 </div>
-<?php
+	<!-- Jquery 3 cdn -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+	// setInterval method to refresh
+	$(document).ready(function() {
+		//auto reload div after 5 seconds
+		setInterval('refresh_div()', 5000);
+	});
+
+	function refresh_div() {
+		location.reload();
+	}
+</script>
+
+<?php 
 include 'lib/footer.php';
