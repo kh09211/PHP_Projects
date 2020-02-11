@@ -20,9 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_GET['name'])){
 	$prev_name = $_GET['name'];
 	$is_disabled = "readonly";
+	$is_autofocus = "autofocus";
 } else { 
 	$prev_name = null;
 	$is_disabled = null;
+	$is_autofocus = null;
 }
 ?>
 <div class="container">
@@ -49,7 +51,7 @@ if (isset($_GET['name'])){
 				</div>
 				<div class="col-md-8">
 					
-					<input type="text" id="comment" name="comment" placeholder="Type something here!" required>
+					<input type="text" id="comment" name="comment" placeholder="Type something here!" required <?php echo $is_autofocus; ?>>
 					
 				</div>
 				<div class="col-md-2">
