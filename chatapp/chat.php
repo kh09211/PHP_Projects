@@ -13,8 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$submited_data['comment'] = cut_string($submited_data['comment'], 75);
 	$submited_data['name'] = cut_string($submited_data['name'], 14);
 	put_comment($submited_data);
-	// Redirect so the page cant be refreshed to submit the data
-	header ('Location: chat.php');
+	// Redirect so the page cant be refreshed to submit the data. Keep name as query parameter for future posts
+	header ('Location: chat.php?name=' . $submited_data['name']);
+}
+// check to see if query parameter exists then set it to variable
+if (isset($_GET['name'])){
+	$prev_name = $_GET['name'];
+	$is_disabled = "readonly";
+} else { 
+	$prev_name = null;
+	$is_disabled = null;
 }
 ?>
 <div class="container">
@@ -37,8 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<div class="row no-gutters " id="typebox-row">
 				<div class="col-md-2">
 					
-					<input type="text" id="name" name="name" placeholder="Your name" class="rounded-bottom" required>
-					
+					<input type="text" id="name" name="name" placeholder="Your name" class="rounded-bottom" value="<?php echo $prev_name; ?>" required <?php echo $is_disabled?> >
 				</div>
 				<div class="col-md-8">
 					
