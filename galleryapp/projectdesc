@@ -1,0 +1,5 @@
+ 
+This gallery app was my first serious-ish project using the Object Oriented Programing (OOP) paradigm within php. The website is a responsive CRUD application that uses Composer autoloaded classes, objects, and namespaces. SQLite is used for the project which utilizes a local database instead of a client/server type. The website works by querying the database table into an array then looping each row into a bootstrap column along with its corresponding photo. The upload tab allows the user to submit a file into the server and its filename and description into the database. Photos can also be removed from the galley. The form is resistant to SQL injection and uses BCRYPT verification.
+
+techs used: PHP, SQLite, HTML5, CSS3, Bootstrap4
+
