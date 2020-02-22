@@ -10,7 +10,7 @@ namespace NewNamespace;
 require 'vendor/autoload.php';
 
 
-$hash = '$2y$10$nqJZcc82rKSEsxJtQWouyu7cPLVrgJranLagBA1u4j3jZYozEGhDe';
+$hash = '$1$5S74e2I6$ak0TPqFNXYBN/8SaOWmst1'; //password changed
 if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['submited']))) {
 		$description = $_POST['description'];
 		$filename = basename($_FILES['file_to_upload']["name"]);
