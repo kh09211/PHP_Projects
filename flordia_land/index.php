@@ -36,7 +36,7 @@ if (isset($_GET['run'])) {
 
 
 	foreach ($citiesArray as $city) {
-		$random = rand(1,10) / 5; // a random number between 0.2 and 2
+		$random = rand(1, 10) / 5; // a random number between 0.2 and 2
 		sleep($random); // pause to avoid running too fast
 
 		// execute the scrape
@@ -56,10 +56,10 @@ if (isset($_GET['run'])) {
 	}
 
 	usort($allCities24hrs, 'cmp');
-	
+
 
 	// filter duplicate ad postings out of the array, then filter out null values, then reset the index values
-	$allCities24hrs = array_filter($allCities24hrs, function ($item, $key) use ($allCities24hrs){
+	$allCities24hrs = array_filter($allCities24hrs, function ($item, $key) use ($allCities24hrs) {
 		if ($key > 0) {
 			return ($item['desc'] != $allCities24hrs[$key - 1]['desc']);
 		} else {
@@ -67,11 +67,13 @@ if (isset($_GET['run'])) {
 		}
 	}, ARRAY_FILTER_USE_BOTH);
 
-	$allCities24hrs = array_values(array_filter($allCities24hrs)); 
+	$allCities24hrs = array_values(array_filter($allCities24hrs));
 
 	$adsCount = "Found: " . strval(count($allCities24hrs));
-} else { 
-	$adsCount = implode(' - ', array_map(function ($val) { return ucfirst($val); }, $citiesArray));
+} else {
+	$adsCount = implode(' - ', array_map(function ($val) {
+		return ucfirst($val);
+	}, $citiesArray));
 }
 
 ?>
@@ -127,8 +129,8 @@ if (isset($_GET['run'])) {
 				</table>
 			</div>
 		<?php } else { ?>
-			<form action="/" method="GET">
-				<input type="hidden" name="run" value="true"/>
+			<form action="/PHP_Projects/flordia_land/index.php" method="GET">
+				<input type="hidden" name="run" value="true" />
 				<div class="w-100">
 					<button class="d-block mx-auto btn btn-success" onclick="showLoading()">Run Search!</button>
 					<div class="text-center"></div>
@@ -144,4 +146,5 @@ if (isset($_GET['run'])) {
 		loadingDiv.innerHTML = "Loading results...";
 	}
 </script>
+
 </html>
