@@ -24,15 +24,15 @@ $filenames = array_values(array_diff(scandir('audios'), array('..', '.')));
 		el.play();
 	}
 
-	function rewind15() {
+	function rewind5() {
 		var el = document.getElementById('audio');
-		el.currentTime -= 10;
+		el.currentTime -= 5;
 		el.play();
 	}
 
-	function forward15() {
+	function forward5() {
 		var el = document.getElementById('audio');
-		el.currentTime += 10;
+		el.currentTime += 5;
 		el.play();
 	}
 
@@ -40,14 +40,14 @@ $filenames = array_values(array_diff(scandir('audios'), array('..', '.')));
 
 <body style="background-color:azure">
 	<div style="display: flex; flex-direction: row; justify-content: center; padding: 20px;">
-		<button style="display: block; height: 40px;" onclick="rewind15()">-10sec</button>
+		<button style="display: block; height: 40px;" onclick="rewind5()">-5sec</button>
 		<div id="player" style="width: 100%;">
 			<audio controls id="audio" style="width: 100%;">
 				<source id="source" src="audios/<?php echo $filenames[0] ?>" type="audio/mpeg">
 				Your browser does not support the audio element.
 			</audio>
 		</div>
-		<button style="display: block; height: 40px;" onclick="forward15()">+10sec</button>
+		<button style="display: block; height: 40px;" onclick="forward5()">+5sec</button>
 	</div>
 	<div style="display: flex; flex-direction: row; justify-content: center;  flex-wrap: wrap;">
 		<?php foreach ($filenames as $lesson) { ?>
